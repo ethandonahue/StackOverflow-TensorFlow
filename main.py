@@ -1,12 +1,9 @@
-# from __future__ import absolute_import, division, print_function, unicode_literals
-
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from six.moves import urllib
 
 import tensorflow as tf
-import tensorflow._api.v2.feature_column as fc
 
 # Load dataset.
 dftrain = pd.read_csv('https://storage.googleapis.com/tf-datasets/titanic/train.csv')  # training data
@@ -46,6 +43,4 @@ eval_input_fn = make_input_fn(dfeval, y_eval, num_epochs=1, shuffle=False)
 linear_est = tf.estimator.LinearClassifier(feature_columns=feature_columns)
 
 linear_est.train(train_input_fn)  # train
-result = linear_est.evaluate(eval_input_fn)  # get model metrics/stats by testing on tetsing data
-
-print(result['accuracy'])  # the result variable is simply a dict of stats about our model
+result = linear_est.evaluate(eval_input_fn)  # get model metrics/stats by testing on testing data
