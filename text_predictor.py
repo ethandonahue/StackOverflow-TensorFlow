@@ -93,7 +93,7 @@ model.compile(loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=Tru
               metrics=['accuracy'])
 
 # Train the model
-epochs = 10
+epochs = 25
 history = model.fit(
     train_ds,
     validation_data=val_ds,
