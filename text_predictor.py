@@ -34,19 +34,6 @@ raw_test_ds = tf.keras.preprocessing.text_dataset_from_directory(
     test_dir,
     batch_size=batch_size)
 
-print("Label 0 corresponds to", raw_train_ds.class_names[0])
-print("Label 1 corresponds to", raw_train_ds.class_names[1])
-print("Label 2 corresponds to", raw_train_ds.class_names[2])
-print("Label 3 corresponds to", raw_train_ds.class_names[3])
-
-
-# Create a custom standardization function
-# @tf.keras.utils.register_keras_serializable()
-# def custom_standardization(input_data):
-#     lowercase = tf.strings.lower(input_data)
-#     stripped_html = tf.strings.regex_replace(lowercase, '<br />', ' ')
-#     return tf.strings.regex_replace(stripped_html, '[%s]' % re.escape(string.punctuation), '')
-
 
 # Define the vectorization layer
 max_features = 10000
@@ -93,7 +80,7 @@ model.compile(loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=Tru
               metrics=['accuracy'])
 
 # Train the model
-epochs = 25
+epochs = 100
 history = model.fit(
     train_ds,
     validation_data=val_ds,
