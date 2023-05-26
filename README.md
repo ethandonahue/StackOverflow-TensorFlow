@@ -1,6 +1,6 @@
-# Text Categorization Model
+# StackOverflow Text Categorization Model
 
-This code implements a text categorization model using TensorFlow. The model is trained to classify text into different categories. Here is a brief overview of the code:
+This code implements a text categorization model using TensorFlow and StackOverflow post data. The model is trained to classify StackOverflow posts into different categories. Here is a brief overview of the code:
 
 **1. Data Loading**: The code loads training and testing data from the specified directories using `tf.keras.preprocessing.text_dataset_from_directory`.
 
